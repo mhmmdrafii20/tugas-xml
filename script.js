@@ -2,6 +2,7 @@ const table = document.getElementById("table");
 const input = document.getElementById("inputNama");
 const select = document.getElementById("jurusan");
 const btnTambah = document.getElementById("btnTambah");
+const btnSimpan = document.getElementById("btnSimpan");
 
 
 function renderData() {
@@ -33,6 +34,7 @@ function renderData() {
                 <td>${nama}</td>
                 <td>${jurusan}</td>
                 <td>
+                <button class="btnEdit" data-index="${i}">Edit</button>
                 <button class="btnDelete" data-index="${i}">Delete</button>
                 </td>
             </tr>
@@ -58,6 +60,25 @@ function renderData() {
                 .catch(err => console.error("Error delete:", err));
             });
         })
+
+        const btnEdit = document.querySelectorAll(".btnEdit");
+
+        btnEdit.forEach(btn => {
+          btn.addEventListener("click", e => {
+            const index = e.target.getAttribute("data-index");
+
+            const nama = dataList[index].getElementsByTagName("nama_mahasiswa")[0].textContent;
+            const jurusan = dataList[index].getElementsByTagName("jurusan")[0].textContent;
+            input.value = nama;
+            select.value = jurusan;
+
+            input.dataset.editIndex = index;
+
+            btnSimpan.style.display = "inline-block";
+            btnTambah.style.display = "none";
+
+          })
+        })
     })
 }
 
@@ -70,6 +91,28 @@ theadElement.innerHTML += `<tr>
 
 table.appendChild(theadElement);
 
+//simpan perubahan
+btnSimpan.addEventListener("click", () => {
+    const index = input.dataset.editIndex;
+    const updatedNama = input.value;
+    const updatedJurusan = select.value;
+
+    const payloadEdit = {
+      index,
+      nama_mahasiswa: updatedNama,
+      jurusan:updatedJurusan,
+    }
+
+    fetch("edit.php", {
+      method:"POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payloadEdit)
+    })
+    .then(res => res.text())
+    .then(result => {
+        alert(result);
+    });
+})
 
 
 btnTambah.addEventListener("click", () => {
@@ -100,6 +143,7 @@ btnTambah.addEventListener("click", () => {
     })
     .catch(err => console.error("Error tambah data:", err));
 });
+
 
 // Panggil pertama kali saat halaman dimuat
 renderData();
