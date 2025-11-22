@@ -1,0 +1,16 @@
+export const elements = {
+    table:document.getElementById("table"),
+    thead:document.createElement("thead"),
+    tbody:document.createElement("tbody"),
+    inpKBarang:document.getElementById("kode_barang"),
+    inpNBarang:document.getElementById("nama_barang"),
+    inpHargaP:document.getElementById("harga_perolehan"),
+    inpHargaJ:document.getElementById("harga_jual"),
+    inpJumlahStok:document.getElementById("jumlah_stok"),
+    inpSupplier:document.getElementById("supplier_utama"),
+    inpCari:document.getElementById("inpCari"),
+    btnTambah:document.getElementById("btnTambah"),
+    btnUbah:document.getElementById("btnUbah"),
+    btnCari:document.getElementById("btnCari"),
+    index:document.getElementById("index"),
+}

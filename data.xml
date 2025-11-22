@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mahasiswa><mhs><nama_mahasiswa>was</nama_mahasiswa><jurusan>Informatika</jurusan></mhs></mahasiswa>
+<databarang><barang><kode_barang>test</kode_barang><nama_barang>test</nama_barang><harga_perolehan>2323</harga_perolehan><harga_jual>2323</harga_jual><jumlah_stok>2323</jumlah_stok><supplier_utama>Supplier A</supplier_utama></barang><barang><kode_barang>lalaa</kode_barang><nama_barang>lalaa</nama_barang><harga_perolehan>23</harga_perolehan><harga_jual>23</harga_jual><jumlah_stok>23</jumlah_stok><supplier_utama>Supplier B</supplier_utama></barang></databarang>

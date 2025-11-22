@@ -7,7 +7,7 @@ if (file_exists($file)) {
     $xml = simplexml_load_file($file);
 
     // Hapus elemen berdasarkan index
-    unset($xml->mhs[$index]);
+    unset($xml->barang[$index]);
 
     // Simpan kembali file XML
     $xml->asXML($file);

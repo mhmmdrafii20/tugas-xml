@@ -4,7 +4,6 @@ const select = document.getElementById("jurusan");
 const btnTambah = document.getElementById("btnTambah");
 const btnSimpan = document.getElementById("btnSimpan");
 
-
 function renderData() {
 
     const tbodyElement = document.createElement("tbody");
