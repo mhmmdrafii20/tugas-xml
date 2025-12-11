@@ -69,6 +69,7 @@ export function bindListener (xml) {
     const btnDelete = document.querySelectorAll(".btnDelete");
     btnDelete.forEach(btn => {
         btn.addEventListener("click", e => {
+        if(confirm("Yakin mau hapus data ini ")){
             const index = e.target.getAttribute("data-index");
             fetch("delete.php", {
                 method: "POST",
@@ -80,8 +81,10 @@ export function bindListener (xml) {
                 console.log(msg);
             })
             .catch(err => console.error("Error delete:", err));
+        }
         })
     })
+    //SEARCH
     elements.btnCari.addEventListener("click", () => {
         const keyword = elements.inpCari.value;
 
