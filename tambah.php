@@ -34,5 +34,5 @@
 	// Simpan ke file (overwrite file lama)
 	$xml->asXML($file);
 
-	echo "✅ Data berhasil ditambah.";
+	echo json_encode(["success" => true]);
 ?>

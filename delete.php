@@ -12,7 +12,8 @@ if (file_exists($file)) {
     // Simpan kembali file XML
     $xml->asXML($file);
 
-    echo "Data berhasil dihapus";
+    echo json_encode(["success" => true]);
+    
 } else {
     echo "File tidak ditemukan";
 }

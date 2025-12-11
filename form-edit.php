@@ -41,17 +41,17 @@
 
             <div class="form-group">
                 <label for="harga_perolehan" class="form-label">Harga Perolehan</label>
-                <input type="text" id="harga_perolehan" name="harga_perolehan" value="<?= $item->harga_perolehan ?>" placeholder="Masukkan harga perolehan" >
+                <input type="number" id="harga_perolehan" name="harga_perolehan" value="<?= $item->harga_perolehan ?>" placeholder="Masukkan harga perolehan" >
             </div>
 
             <div class="form-group">
                 <label for="harga_jual" class="form-label">Harga Jual</label>
-                <input type="text" id="harga_jual" name="harga_jual" value="<?= $item->harga_jual ?>"  placeholder="Masukkan harga jual">
+                <input type="number" id="harga_jual" name="harga_jual" value="<?= $item->harga_jual ?>"  placeholder="Masukkan harga jual">
             </div>
 
             <div class="form-group">
                 <label for="jumlah_stok" class="form-label">Jumlah Stok</label>
-                <input type="text" id="jumlah_stok" name="jumlah_stok" value="<?= $item->jumlah_stok ?>"  placeholder="Masukkan jumlah stok" >
+                <input type="number" id="jumlah_stok" name="jumlah_stok" value="<?= $item->jumlah_stok ?>"  placeholder="Masukkan jumlah stok" >
             </div>
 
             <div class="form-group">

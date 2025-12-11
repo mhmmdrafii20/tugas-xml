@@ -28,3 +28,5 @@ $xml->barang[$index]->supplier_utama = $su;
 
 // Simpan perubahan
 $xml->asXML("data.xml");
+
+echo json_encode(["success" => true]);

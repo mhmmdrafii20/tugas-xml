@@ -31,7 +31,7 @@ export function bindListener (xml) {
         })
         .then(res => res.text())
         .then(msg => {
-            console.log(msg);
+            window.location.href = "index.php?msg=created";
         })  
         .catch(err => console.error("Error tambah data:", err));
     })
@@ -62,28 +62,47 @@ export function bindListener (xml) {
         })
         .then(res => res.text())
         .then(result => {
-            alert(result);
+             window.location.href = "index.php?msg=updated";
         });
     });
-    //DELETE
-    const btnDelete = document.querySelectorAll(".btnDelete");
-    btnDelete.forEach(btn => {
-        btn.addEventListener("click", e => {
-        if(confirm("Yakin mau hapus data ini ")){
-            const index = e.target.getAttribute("data-index");
+    elements.tbody.addEventListener("click", (e) => {
+    if (e.target.classList.contains("btnDelete")) {
+
+        if (confirm("Yakin mau hapus data ini?")) {
+            const index = e.target.dataset.index;
+
             fetch("delete.php", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ index: index })
+                body: JSON.stringify({ index })
             })
             .then(res => res.text())
             .then(msg => {
-                console.log(msg);
+                window.location.href = "index.php?msg=deleted";
             })
             .catch(err => console.error("Error delete:", err));
         }
-        })
-    })
+    }
+    });
+    // //DELETE
+    // const btnDelete = document.querySelectorAll(".btnDelete");
+    // btnDelete.forEach(btn => {
+    //     btn.addEventListener("click", e => {
+    //     if(confirm("Yakin mau hapus data ini ")){
+    //         const index = e.target.getAttribute("data-index");
+    //         fetch("delete.php", {
+    //             method: "POST",
+    //             headers: { "Content-Type": "application/json" },
+    //             body: JSON.stringify({ index: index })
+    //         })
+    //         .then(res => res.text())
+    //         .then(msg => {
+    //             console.log(msg);
+    //         })
+    //         .catch(err => console.error("Error delete:", err));
+    //     }
+    //     })
+    // })
     //SEARCH
     elements.btnCari.addEventListener("click", () => {
         const keyword = elements.inpCari.value;
